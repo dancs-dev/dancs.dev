@@ -1,0 +1,3 @@
+[submodule "themes/ikigai"]
+	path = themes/ikigai
+	url = ../ikigai.git
