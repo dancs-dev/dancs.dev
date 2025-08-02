@@ -1,0 +1,43 @@
+baseURL = 'https://dancs.dev/'
+languageCode = 'en-gb'
+title = 'dancs.dev'
+theme = 'ikigai'
+
+[[menus.main]]
+name = 'Home'
+pageRef = '/'
+weight = 10
+
+[[menus.main]]
+name = 'Projects'
+pageRef = '/projects'
+weight = 20
+
+[[menus.main]]
+name = 'Blog'
+pageRef = '/blog'
+weight = 30
+[outputs]
+  home = ['html', 'rss']
+  section = ['html', 'rss']
+  taxonomy = ['html']
+  term = ['html']
+
+[params]
+    [params.author]
+        name = 'dancs-dev'
+
+    [params.contact.github]
+        name = 'GitHub'
+        href = 'https://github.com/dancs-dev'
+        icon = 'bi bi-github'
+
+    [params.contact.linkedin]
+        name = 'LinkedIn'
+        href = 'https://github.com/dancs-dev'
+        icon = 'bi bi-linkedin'
+
+    [params.contact.rss]
+        name = 'RSS'
+        href = '/index.xml'
+        icon = 'bi bi-rss-fill'
