@@ -27,6 +27,10 @@ weight = 30
     [params.author]
         name = 'dancs-dev'
 
+    [params.feedback]
+        enabled = true
+        repository = 'https://github.com/dancs-dev/dancs.dev'
+
     [params.contact.github]
         name = 'GitHub'
         href = 'https://github.com/dancs-dev'
