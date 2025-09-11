@@ -151,7 +151,7 @@ If using this method, follow the documentation according to your domain's DNS pr
 
 ### Local DNS
 
-I would recommend using a local DNS server where you can make local DNS configuration that applies only to your local network - see my guide [Local DNS using Pi-hole with upstream DNS over HTTPS](/blog/pihole-with-doh/) for how to do this.
+I would recommend using a local DNS server where you can make local DNS configuration that applies only to your local network - see my guide [Local DNS using Pi-hole with upstream DNS over HTTPS]({{<ref "/blog/pihole-with-doh">}}) for how to do this.
 
 ## Tips and caveats
 
@@ -170,5 +170,5 @@ I would recommend using a local DNS server where you can make local DNS configur
 
 ## Further reading
 
-- [Securing local services with Let's Encrypt](/blog/securing-local-services-with-lets-encrypt/).
-- [Using Pi-hole for locally resolvable DNS for your internal services](/blog/pihole-with-doh/).
+- [Securing local services with Let's Encrypt]({{<ref "/blog/securing-local-services-with-lets-encrypt">}}).
+- [Using Pi-hole for locally resolvable DNS for your internal services]({{<ref "/blog/pihole-with-doh">}}).

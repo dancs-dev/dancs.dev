@@ -1,4 +1,4 @@
-baseURL = 'https://dancs.dev/'
+baseURL = 'https://dancs.dev/dancs-dev/'
 languageCode = 'en-gb'
 title = 'dancs.dev'
 theme = 'ikigai'
@@ -38,5 +38,5 @@ weight = 30
 
     [params.contact.rss]
         name = 'RSS'
-        href = '/index.xml'
+        href = 'index.xml'
         icon = 'bi bi-rss-fill'

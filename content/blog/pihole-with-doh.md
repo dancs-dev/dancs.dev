@@ -127,8 +127,8 @@ You now need to set up your devices to use Pi-hole as their DNS server. The most
 
 ## Further reading
 
-- [Putting your local services behind a subdomain using NGINX](/blog/host-homelab-services-behind-subdomain/).
-- [Securing local services with Let's Encrypt](/blog/securing-local-services-with-lets-encrypt/).
+- [Putting your local services behind a subdomain using NGINX]({{<ref "/blog/host-homelab-services-behind-subdomain/">}}).
+- [Securing local services with Let's Encrypt]({{<ref "/blog/securing-local-services-with-lets-encrypt/">}}).
 
 [^dns-privacy]: Huston, Geoff (July 2019). "[DNS Privacy and the IETF](https://ipj.dreamhosters.com/wp-content/uploads/2019/07/ipj222.pdf
 )". The Internet Protocol Journal.

@@ -121,8 +121,8 @@ You should have a certificate that will automatically renew which you can use to
 
 ## Further reading
 
-- [Putting your local services behind a subdomain using NGINX and your new certificate](/blog/host-homelab-services-behind-subdomain/).
-- [Using Pi-hole for locally resolvable DNS for your internal services](/blog/pihole-with-doh/).
+- [Putting your local services behind a subdomain using NGINX and your new certificate]({{<ref "/blog/host-homelab-services-behind-subdomain">}}).
+- [Using Pi-hole for locally resolvable DNS for your internal services]({{<ref "/blog/pihole-with-doh">}}).
 
 [^lets-encrypt-how-it-works]: https://letsencrypt.org/how-it-works/
 [^certbot-installation]: https://certbot.eff.org/instructions?ws=other&os=pip&tab=wildcard
