@@ -23,6 +23,8 @@ Create a `docker-compose.yaml` in a suitable directory. Make sure you adjust any
 
 ```yaml
 services:
+  # Credit to https://mroach.com/2020/08/pi-hole-and-cloudflared-with-docker/#option-1-hidden-cloudflared
+  # for the idea of using a hidden internal Docker network.
   cloudflared:
     container_name: cloudflared
     image: cloudflare/cloudflared
@@ -33,7 +35,7 @@ services:
       - "TUNNEL_DNS_UPSTREAM=https://9.9.9.9/dns-query"
       # Listen on an unprivileged port.
       - "TUNNEL_DNS_PORT=5053"
-      # Listen on all interfaces.
+      # Bind on all interfaces.
       - "TUNNEL_DNS_ADDRESS=0.0.0.0"
     networks:
       internal:

@@ -155,7 +155,7 @@ I would recommend using a local DNS server where you can make local DNS configur
 ## Tips and caveats
 
 1. Once your homelab service is proxied using a reverse proxy running on the same machine, you can bind the Docker host port to only the local interface. This way, the service will only be reachable from your subdomain/NGINX over the local network. You can do this by specifying the local IP address as part of the host port. For example, for Pi-hole, you could do `"127.0.0.1:8080:80/tcp"`
-1. Many homelab services have require Web sockets. You can enable them by adding the following directives to your NGINX location block:
+1. Many homelab services require Web sockets. You can enable them by adding the following directives to your NGINX location block:
     ```nginx
     location / {
         ...
