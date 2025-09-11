@@ -36,11 +36,6 @@ weight = 30
         href = 'https://github.com/dancs-dev'
         icon = 'bi bi-github'
 
-    [params.contact.linkedin]
-        name = 'LinkedIn'
-        href = 'https://github.com/dancs-dev'
-        icon = 'bi bi-linkedin'
-
     [params.contact.rss]
         name = 'RSS'
         href = '/index.xml'
