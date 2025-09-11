@@ -1,4 +1,4 @@
-baseURL = 'https://dancs.dev/dancs-dev/'
+baseURL = 'https://dancs.dev/'
 languageCode = 'en-gb'
 title = 'dancs.dev'
 theme = 'ikigai'
