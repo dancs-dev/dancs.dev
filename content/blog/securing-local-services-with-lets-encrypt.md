@@ -7,18 +7,18 @@ summary = "Securing local services within a home network using Let's Encrypt cer
 
 ## Introduction
 
-I have an ever-increasing number of services I host in my homelab, such as PhotoPrism and Home Assistant. These services can only be accessed on the local network, so while I can reasonaly safely access them with a self-signed certificate, using a certificate signed by a trusted Certificate Authority will remove browser warnings and resolve potential compatibility issues.
+I have an ever-increasing number of services that I host in my homelab, such as Immich and Home Assistant. These services can only be accessed on the local network, so while I can reasonaly safely access them with a self-signed certificate, using a certificate signed by a trusted Certificate Authority will remove browser warnings and resolve potential compatibility issues.
 
-However - how do you get a certificate for a domain that isn't publicly accessible? When setting up a certificate using Let's Encrypt, you'll need to provde that you control the domain[^lets-encrypt-how-it-works]. Tools like Cerbot can use the ACME protocol to automatically do this, normally by provisioning an HTTP resource under your domain. However, this won't work if you don't have a Web server that is publicly reachable.
+However, how do you get a certificate for a domain that isn't publicly accessible? When setting up a certificate using Let's Encrypt, you'll need to prove that you control the domain[^lets-encrypt-how-it-works]. Tools like Cerbot can use the ACME protocol to automatically do this, normally by provisioning an HTTP resource under your domain. However, this won't work if you don't have a Web server that is publicly reachable.
 
 The solution is the ACME DNS challenge and a DNS provider that provides an API to provision DNS records.
 
 ## Prerequisites
 
-- A domain name
-- A DNS provider that is supported by a [Certbot DNS plugins](https://eff-certbot.readthedocs.io/en/stable/using.html#dns-plugins) (I'm using Cloudflare)
+- A domain name that you own.
+- A DNS provider that is supported by one of the [Certbot DNS plugins](https://eff-certbot.readthedocs.io/en/stable/using.html#dns-plugins) (I'm using Cloudflare).
 
-It your DNS provider is not supported, it is possible to manually provision the DNS record, but this will not allow for automatic renewals. Alternatively, a different ACME client may support your DNS provider, such as [acme.sh](https://github.com/acmesh-official/acme.sh/wiki/dnsapi), however this guide will focus on Certbot.
+If your DNS provider is not supported, it is possible to manually provision the DNS record, but this will not allow for automatic renewals. Alternatively, a different ACME client may support your DNS provider, such as [acme.sh](https://github.com/acmesh-official/acme.sh/wiki/dnsapi), however this guide will focus on Certbot.
 
 ## Installing Certbot
 

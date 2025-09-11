@@ -1,5 +1,5 @@
 +++
-title = 'Local DNS using Pihole with upstream DNS over HTTPS'
+title = 'Local DNS using Pi-hole with upstream DNS over HTTPS'
 date = 2025-07-28T16:15:09+01:00
 draft = false
 summary = "Set up Pi-hole using Docker, configure it to use upstream DNS over HTTPS, and use local DNS to easily access local homelab services."
@@ -8,14 +8,16 @@ summary = "Set up Pi-hole using Docker, configure it to use upstream DNS over HT
 
 ## Introduction
 
-When setting up my homelab, and convincing my family to use services I was hosting, one of the main points of friction was requiring them to enter an IP address and port. While the adblocking functionality of Pi-hole is useful for some devices and applications such as mobile phones, tools like [uBlock Origin](https://ublockorigin.com/) on [Firefox](https://www.firefox.com/en-US/) can be more powerful. The primary reason I use Pi-hole is for its ability to set local DNS records. This means, for example, I can set `home.example.com` to point to a local IP address running Home Assistant without having to make that DNS record public.
+After setting up my homelab, I wanted to let my family use the services I was hosting, however one of the main points of friction was requiring them to enter an IP address and port. While the adblocking functionality of Pi-hole is useful for some devices and applications such as mobile phones, tools like [uBlock Origin](https://ublockorigin.com/) on [Firefox](https://www.firefox.com/en-US/) can be more powerful. The primary reason I use Pi-hole is for its ability to set local DNS records. This enables me to, for example, set `home.example.com` to point to a local IP address running Home Assistant without having to make that DNS record public.
 
-However, the main drawback to Pi-hole is its reliance on plain unencrypted upstream DNS and the lack of privacy and data integrity that provides[^dns-privacy]. There have been several new protocols developed to resolve these issues, including the DNS over HTTPS (DoH) protocol in [RFC 8484](https://www.rfc-editor.org/rfc/rfc8484). The Pi-hole documentation provides a few workarounds for using DoH, [including using the `cloudflared` tool](https://docs.pi-hole.net/guides/dns/cloudflared/). Despite this tool being developed by Cloudflare, you can choose any DoH provider you like.
+However, the main drawback to Pi-hole is its reliance on plain unencrypted upstream DNS and the lack of privacy and data integrity that provides[^dns-privacy]. There have been several new protocols developed to resolve these issues, including the DNS over HTTPS (DoH) protocol in [RFC 8484](https://www.rfc-editor.org/rfc/rfc8484). The Pi-hole documentation provides a few workarounds for using DoH, [including using the `cloudflared` tool](https://docs.pi-hole.net/guides/dns/cloudflared/). A [blog by Michael Horn](https://mroach.com/2020/08/pi-hole-and-cloudflared-with-docker/#option-1-hidden-cloudflared) inspired me to run cloudflared alongside Pi-hole using Docker Compose.
+
+Despite this tool being developed by Cloudflare, you can choose any DoH provider you like.
 
 ## Prerequisites
 
-- A device such as a Raspberry Pi that can run 24/7
-- [Docker](https://docs.docker.com/engine/install/)
+- A device such as a Raspberry Pi that can run 24/7.
+- [Docker](https://docs.docker.com/engine/install/) installed on your system.
 
 ## Installing and configuring Pi-hole
 
@@ -23,8 +25,6 @@ Create a `docker-compose.yaml` in a suitable directory. Make sure you adjust any
 
 ```yaml
 services:
-  # Credit to https://mroach.com/2020/08/pi-hole-and-cloudflared-with-docker/#option-1-hidden-cloudflared
-  # for the idea of using a hidden internal Docker network.
   cloudflared:
     container_name: cloudflared
     image: cloudflare/cloudflared
@@ -118,11 +118,11 @@ Under local DNS records, I would recommend creating one record per machine/IP ad
 
 One of the benefits of this approach is that you can easily change the IP address of a machine without having to update many records. It also makes it easier to see what machine a domain is pointing to.
 
-Even if you don't currently have any other homelab services, you can use this feature for easier access to the Pi-hole admin interface! Once you've set up a local DNS record pointing to the machine your Pi-hole is running on, and a CNAME record for your Pi-hole, see [Further reading](#further-reading) for how to reverse proxy to Pi-hole using NGINX.
+Even if you don't currently have any other homelab services, you can use this feature for easier access to the Pi-hole admin interface. Once you've set up a local DNS record pointing to the machine your Pi-hole is running on, and a CNAME record for your Pi-hole, see [Further reading](#further-reading) for how to reverse proxy to Pi-hole using NGINX.
 
 ## Setting your devices to use Pi-Hole DNS
 
-You now need to set up your devices to use Pi-hole as their DNS server. The most straightforward way to ensure all of your devices use Pi-hole is to set it as your router's DNS. Unfortunately, not all routers support this. If your router does not support this, you will need to set each device to use Pi-hole. As there are so many different ways this could be done, I will not go into detail here. Instead, use your favourite search engine to find instructions for your specific operating system or device.
+You now need to set up your devices to use Pi-hole as their DNS server. The most straightforward way to ensure all of your devices use Pi-hole is to set it as your router's DNS. Unfortunately, not all routers support this. If your router does not support this, you will need to set each device to use Pi-hole (or use a more complex method such as setting up a DHCP server). As there are so many different ways this could be done, search for instructions for your specific operating system or device.
 
 
 ## Further reading
