@@ -9,7 +9,7 @@ summary = "My portfolio and blog, made using the open-source static site generat
 
 With technology and artificial intelligence continuing to evolve at a rate reminiscent of [Moore's law](https://en.wikipedia.org/wiki/Moore%27s_law), I found myself interested in creating my own website to showcase my projects as a software engineer and share my experience in the world of homelabbing.
 
-After a lot of contemplation, chose to build *dancs.dev* using [Hugo](https://gohugo.io/), an open-source static site generator written in Go. I was drawn to Hugo for several reasons - the ability to write content using Markdown, its speed and performance, and the maintainability of hosting a static site.
+After a lot of contemplation, I chose to build *dancs.dev* using [Hugo](https://gohugo.io/), an open-source static site generator written in Go. I was drawn to Hugo for several reasons - the ability to write content using Markdown, its speed and performance, and the maintainability of hosting a static site.
 
 ## Technology stack
 

@@ -97,7 +97,7 @@ sudo certbot certonly --dns-cloudflare --dns-cloudflare-credentials \
 /etc/letsencrypt/cloudflare.ini -d '*.example.com'
 ```
 
-**Note**: the [Certificate Transparency](https://en.wikipedia.org/wiki/Certificate_Transparency) Internet security standard requires that all certificates be logged in public logs. These logs can be searched freely on websites such as [crt.sh](https://crt.sh). If you are getting a certificate for a particular subdomain, caution should be taken to avoid creating certificates for sensitive internal services.
+**Note**: the [Certificate Transparency](https://en.wikipedia.org/wiki/Certificate_Transparency) Internet security standard requires that all issued certificates be logged in public logs. These logs can be searched freely on websites such as [crt.sh](https://crt.sh). If you are obtaining a certificate for a specific subdomain rather than a wildcard, it is important to consider the potential exposure of insights into your internal network from these logs.
 
 To ensure your certificate automatically renews, run the following line to add a cron job:
 
