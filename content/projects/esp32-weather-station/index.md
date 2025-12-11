@@ -1,7 +1,7 @@
 +++
 title = 'Custom air quality monitor with Home Assistant integration'
 date = 2025-10-20T17:13:08+01:00
-draft = true
+draft = false
 summary = "A custom air quality monitor / weather station created using commonly available sensors."
 [params]
     repo = 'https://github.com/dancs-dev/esp32-weather-station'
