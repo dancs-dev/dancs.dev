@@ -7,7 +7,7 @@ summary = "Securing local services within a home network using Let's Encrypt cer
 
 ## Introduction
 
-I have an ever-increasing number of services that I host in my homelab, such as Immich and Home Assistant. These services can only be accessed on the local network, so while I can reasonaly safely access them with a self-signed certificate, using a certificate signed by a trusted Certificate Authority will remove browser warnings and resolve potential compatibility issues.
+I have an ever-increasing number of services that I host in my homelab, such as Immich and Home Assistant. These services can only be accessed on the local network, so while I can access them reasonably safely with a self-signed certificate, using a certificate signed by a trusted Certificate Authority will remove browser warnings and resolve potential compatibility issues.
 
 However, how do you get a certificate for a domain that isn't publicly accessible? When setting up a certificate using Let's Encrypt, you'll need to prove that you control the domain[^lets-encrypt-how-it-works]. Tools like Cerbot can use the ACME protocol to automatically do this, normally by provisioning an HTTP resource under your domain. However, this won't work if you don't have a Web server that is publicly reachable.
 

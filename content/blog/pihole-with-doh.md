@@ -5,7 +5,6 @@ draft = false
 summary = "Set up Pi-hole using Docker, configure it to use upstream DNS over HTTPS, and use local DNS to easily access local homelab services."
 +++
 
-
 ## Introduction
 
 After setting up my homelab, I wanted to let my family use the services I was hosting, however one of the main points of friction was requiring them to enter an IP address and port. While the adblocking functionality of Pi-hole is useful for some devices and applications such as mobile phones, tools like [uBlock Origin](https://ublockorigin.com/) on [Firefox](https://www.firefox.com/en-US/) can be more powerful. The primary reason I use Pi-hole is for its ability to set local DNS records. This enables me to, for example, set `home.example.com` to point to a local IP address running Home Assistant without having to make that DNS record public.
@@ -57,6 +56,7 @@ services:
     environment:
       TZ: 'Europe/London'
       WEBPASSWORD: "<CHANGE_ME>"
+      # Allows you to host the Pi-hole Web interface behind a domain.
       CORS_HOSTS: "pihole.example.com"
     # Ensure configuration and data is persistent.
     volumes:
@@ -91,11 +91,11 @@ Once the containers have started, log in to Pi-hole on `http://127.0.0.1:8080` (
 
 Navigate to `System > Settings > DNS` and uncheck all the default upstream DNS servers. 
 
-Then, expand the custom DNS servers section and add `172.30.9.2#5053` - this is the IP address of the cloudflared container and the port it is listening on. Pi-hole will send DNS requests to cloudflared, which in turn will make a DoH request to the upstream DoH provider.
+Then, expand the custom DNS servers section and add `172.30.9.2#5053` - this is the IP address of the cloudflared container and the port it is listening on (DNS uses '#' for ports because ':' would be ambiguous with IPv6 addresses). Pi-hole will send DNS requests to cloudflared, which in turn will make a DoH request to the upstream DoH provider.
 
 ## Local DNS
 
-Now onto the really neat part about Pi-hole - the ability to set local DNS records.
+Now onto one of my favourite Pi-hole features - the ability to set local DNS records.
 
 Navigate to `System > Settings > Local DNS Records`.
 
@@ -123,7 +123,6 @@ Even if you don't currently have any other homelab services, you can use this fe
 ## Setting your devices to use Pi-Hole DNS
 
 You now need to set up your devices to use Pi-hole as their DNS server. The most straightforward way to ensure all of your devices use Pi-hole is to set it as your router's DNS. Unfortunately, not all routers support this. If your router does not support this, you will need to set each device to use Pi-hole (or use a more complex method such as setting up a DHCP server). As there are so many different ways this could be done, search for instructions for your specific operating system or device.
-
 
 ## Further reading
 

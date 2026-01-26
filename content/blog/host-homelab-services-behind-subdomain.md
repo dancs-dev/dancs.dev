@@ -7,7 +7,7 @@ summary = 'Host local services behind subdomains using the NGINX reverse proxy.'
 
 ## Introduction
 
-If you've started homelabbing, you've probably got several services hosted on a machine with several varying ports, and access them using, e.g., `192.168.0.2:8001` for service A, `192.168.0.2:9001` for service B, and so on. While this may be OK if you only have a few service and only you use them, this can get fairly messy quite quickly.
+If you've started homelabbing, you've probably got several services hosted on a machine with several varying ports, and access them using, e.g., `192.168.0.2:8001` for service A, `192.168.0.2:9001` for service B, and so on. While this may be OK if you only have a few services and only you use them, this can get fairly messy quite quickly.
 
 Instead, why not host them behind a subdomain? For example, you can have your Immich instance hosted at `photos.example.com` and your Home Assistant instance hosted at `home.example.com`. This can be achieved using a reverse proxy such as NGINX.
 
@@ -19,7 +19,7 @@ I'll discuss how to do this on a local network. NGINX is also very useful for ho
 
 - A homelab service or two already running (I'll cover the Pi-hole Web interface).
 - A domain and/or a local DNS server such as Pi-hole.
-- Optional: An SSL certificate - see how to generate one without a public Web server using Let's Encrypt.
+- Optional: An SSL certificate - see [my post on how to generate one without a public Web server using Let's Encrypt]({{<ref "/blog/securing-local-services-with-lets-encrypt">}}).
 
 ## Install NGINX
 
