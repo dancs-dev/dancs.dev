@@ -3,29 +3,46 @@ title = 'dancs.dev'
 date = 2025-07-28T14:42:49+01:00
 draft = false
 summary = "My portfolio and blog, made using the open-source static site generator Hugo."
+[params]
+    repo = 'https://github.com/dancs-dev/dancs.dev'
 +++
 
 ## Introduction
 
-With technology and artificial intelligence continuing to evolve at a rate reminiscent of [Moore's law](https://en.wikipedia.org/wiki/Moore%27s_law), I found myself interested in creating my own website to showcase my projects as a software engineer and share my experience in the world of homelabbing.
-
-After a lot of contemplation, I chose to build *dancs.dev* using [Hugo](https://gohugo.io/), an open-source static site generator written in Go. I was drawn to Hugo for several reasons - the ability to write content using Markdown, its speed and performance, and the maintainability of hosting a static site.
+I wanted a platform - my platform - to showcase my projects and share technical insights with others. After trying out many different options including Next.js, Django, and Zola, I chose to build *dancs.dev* using [Hugo](https://gohugo.io/), an open-source static site generator written in Go. I was drawn to Hugo for several reasons - content is written in Markdown, builds are fast, and static sites are straightforward to host and maintain. There is no database or server-side runtime to manage, just HTML and a small collection of static files.
 
 ## Technology stack
 
-The beauty of Hugo is its simplicity and maintainability. While more complicated frameworks like Django and Next.js certainly have their place - and indeed I have used them fairly extensively for both professional and personal projects - for a personal website, I wanted something that is lightweight and easy to maintain. After all, there's [a Dan Simmons quote](https://www.goodreads.com/quotes/7310232-entropy-is-a-bitch) that describes complicated software projects.
+- **Hugo:** static site generator.
+- **Markdown:** for content creation with TOML frontmatter.
+- **CSS:** minimal styling without heavy frameworks.
+- **Vanilla JavaScript:** provides additional features but not required for core functionality.
+- **GitHub Actions:** automated build and deployment.
+- **GitHub Pages:** hosting.
 
-- **Hugo**: Static site generator.
-- **Markdown**: For content creation.
-- **CSS/JavaScript**: Styling and additional functionality.
-- **NGINX:** Serving the site.
+## Creating a custom theme: Ikigai
 
-## Design
+Rather than using an existing theme, I built [Ikigai](https://github.com/dancs-dev/ikigai) from scratch. Ikigai is a minimalist Hugo theme designed for personal portfolios and blogs. Creating my own theme has given me full control over the design as well as enables me to add a custom feature set to suit my site.
 
-The core idea behind this site is that it should be simple, lightweight, and flexible. While there are many fantastic [themes available for Hugo](https://themes.gohugo.io/), I opted to create my own custom theme, [Ikigai](https://github.com/dancs-dev/ikigai), which is available on my GitHub. This was primarily because I wanted to be able to tailor the design exactly to my liking and add features that might not be present in existing themes.
+Key design decisions:
+- **Optional JavaScript:** the site is fully usable without the user having to enable JavaScript.
+- **Minimal dependencies:** assets are provided with the theme rather than loaded from external resources.
+- **Accessibility:** the default styling and semantic HTML in templates support accessibility best practices.
 
-Another core idea in the making of this site is that it should still be completely functional without the user having to enable JavaScript. While some functionality is enhanced with JavaScript enabled, such as the copy button of code snippets, the site remains fully usable and accessible even if JavaScript is disabled.
+## Deployment pipeline
 
-## Future work
+The site is built and deployed automatically via GitHub Actions when I push to `main`, allowing me to quickly and simply update the site.
 
-The site is currently in the early stages of development, and I plan to add more features and improve the appearance over time.
+## Challenges and lessons learnt
+
+### Managing the theme
+
+Splitting off the design into a separate repository as a standalone Hugo theme has improved the maintainability of the site as well as enables re-use across other projects. Getting the theme submodule to play well with GitHub Actions required me to load it using a relative URL, i.e., `url = ../ikigai.git`. This allows the submodule be cloned using the same cloning method as the main project (e.g., SSH), but ensures the submodule can be cloned in GitHub actions (e.g., HTTPS).
+
+### Removing external resources
+
+Hosting all of the required resources locally rather than relying on external resources adds some complexity, however I think this is important to do, to ensure that I am in full control of the site as well as that the privacy of users are respected. Fortunately, there are lots of tools to help do this, such as [Mario Ranftl's Google Webfonts Helper](https://github.com/majodev/google-webfonts-helper).
+
+## What's next
+
+I'm continuously improving both the theme and the site (as well as adding more content to the site). Recent additions include contact links to the footer and linking to project repositories via frontmatter settings.
