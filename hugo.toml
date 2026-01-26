@@ -2,6 +2,7 @@ baseURL = 'https://dancs.dev/'
 languageCode = 'en-gb'
 title = 'dancs.dev'
 theme = 'ikigai'
+favicon = '/favicon.ico'
 
 [[menus.main]]
 name = 'Home'
