@@ -95,7 +95,7 @@ Author, feedback, and contact settings are configured under `[params]`:
 Start the Hugo development server with live reload:
 
 ```bash
-hugo server
+hugo server -D
 ```
 
 The site will be available at [http://localhost:1313/](http://localhost:1313/). Changes to content, layouts, or configuration will trigger automatic rebuilds.
