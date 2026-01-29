@@ -46,8 +46,12 @@ If you don't need to translate before transcribing, you can use the 809M paramet
 
 The `tiny` model actually took the same amount of time as the medium model to translate the same video, but with noticeably worse translation. When I tested this on a 23-minute English video (i.e., no translation needed), the tiny model took 52s and the medium model took 3 minutes, which is a bit closer but not quite at the 5x relative speedup that OpenAI claimed. The transcription produced by the tiny model was better than the translation it produced.
 
-For transcription tasks, the `turbo` model should be the go-to due to its impressive relative speed over the `medium` models whilst still retaining impressive accuracy. For translation tasks, the `medium` model produced sufficient accuracy, but it may be worth exploring the `large` model if your hardware supports it.
+For transcription tasks, the `turbo` model should be the go-to due to its impressive relative speed over the `medium` model whilst still retaining impressive accuracy. For translation tasks, the `medium` model produced sufficient accuracy, but it may be worth exploring the `large` model if your hardware supports it.
 
 ## What's next
 
 I would like to test the tool on weaker hardware such as running on the CPU. Additionally, I suspect that I may be able to get faster performance for transcription-only tasks if I change the flag passed to the whisper model - I have currently fixed this for translation, as it still works well for transcription tasks and keeps the CLI options simple. This would also allow the tool to support transcribing videos in their original language.
+
+## Further reading
+
+- [Ragebait Block: on-device AI content filtering for a calmer feed]({{<ref "/projects/ragebait-block">}}) - another project using on-device ML to create a calmer browsing experience.
