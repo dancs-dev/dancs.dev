@@ -9,7 +9,7 @@ summary = "My portfolio and blog, made using the open-source static site generat
 
 ## Introduction
 
-I wanted a platform - my platform - to showcase my projects and share technical insights with others. After trying out many different options including Next.js, Django, and Zola, I chose to build *dancs.dev* using [Hugo](https://gohugo.io/), an open-source static site generator written in Go. I was drawn to Hugo for several reasons - content is written in Markdown, builds are fast, and static sites are straightforward to host and maintain. There is no database or server-side runtime to manage, just HTML and a small collection of static files.
+I wanted a platform to showcase my projects and share technical insights with others. After trying out many different options including Next.js, Django, and Zola, I chose to build *dancs.dev* using [Hugo](https://gohugo.io/), an open-source static site generator written in Go. I was drawn to Hugo for several reasons - content is written in Markdown, builds are fast, and static sites are straightforward to host and maintain. There is no database or server-side runtime to manage, just HTML and a small collection of static files.
 
 ## Technology stack
 
